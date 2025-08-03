@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "7619193220:AAGAsJcpKoZDu0GrKTvCOD3FIzM1UUWo-e0")
-ADMIN_ID = os.environ.get("ADMIN_ID", "437888858")  # строка или число
+ADMIN_ID = os.environ.get("ADMIN_ID", "-1002533272445")  # строка или число
 TELEGRAM_API = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
 def send_to_telegram(text: str) -> bool:
