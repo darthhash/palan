@@ -1,10 +1,25 @@
 import os
+import html
+import logging
 import requests
 from flask import Flask, render_template, request, jsonify
 
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+logger.info("APP STARTING (debug mode)")
+
 app = Flask(__name__)
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "7619193220:AAGAsJcpKoZDu0GrKTvCOD3FIzM1UUWo-e0")
-ADMIN_ID = os.environ.get("ADMIN_ID", "-1002533272445")  # строка или число
+
+# временно: если нет переменных, подставляем заглушки (чтобы не падало)
+BOT_TOKEN = os.environ.get("BOT_TOKEN") or "7619193220:AAGAsJcpKoZDu0GrKTvCOD3FIzM1UUWo-e0"
+ADMIN_ID_RAW = os.environ.get("ADMIN_ID") or "-1002533272445"
+try:
+    ADMIN_ID = int(ADMIN_ID_RAW)
+except ValueError:
+    logger.warning("ADMIN_ID не число, используем -1000000000000")
+    ADMIN_ID = -1002533272445
+
 TELEGRAM_API = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
 def send_to_telegram(text: str) -> bool:
