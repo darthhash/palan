@@ -1,0 +1,10 @@
+{% macro accommodation_card(title, desc, price, img) %}
+  <div class="card h-100">
+    <img src="{{ url_for('static', filename='img/' ~ img) }}" class="card-img-top" alt="{{ title }} у реки" loading="lazy">
+    <div class="card-body">
+      <h5 class="card-title">{{ title }}</h5>
+      <p class="card-text">{{ desc }}</p>
+      <p><strong>Цена:</strong> {{ price }}</p>
+    </div>
+  </div>
+{% endmacro %}

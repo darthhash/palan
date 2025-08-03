@@ -1,0 +1,14 @@
+<section id="stay" class="py-5 bg-light">
+  <div class="container">
+    <h2>Размещение и цены</h2>
+    <div class="row g-4">
+      {% from "_macros.html" import accommodation_card %}
+      <div class="col-md-4">
+        {{ accommodation_card("Палатка", "Уютное место у воды", "от 1000₽/ночь", "tent.jpg") }}
+      </div>
+      <div class="col-md-4">
+        {{ accommodation_card("Домик", "Семейное размещение с базовыми удобствами", "от 2500₽/ночь", "cabin.jpg") }}
+      </div>
+    </div>
+  </div>
+</section>
