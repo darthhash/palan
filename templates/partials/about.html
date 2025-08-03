@@ -1,0 +1,71 @@
+{% block content %}
+<section id="about" class="py-5">
+  <div class="container">
+
+
+    <h1 class="mb-3">О нас</h1>
+    <p class="lead">
+      Кемпинг Палан на слиянии Суры и Волги — простое загородное пространство для тех, кто хочет перезарядиться на природе, порыбачить, посидеть у костра и почувствовать связь с рекой и лесом. Мы делаем отдых доступным, душевным и без лишнего пафоса.
+    </p>
+
+    <!-- Фотографии сразу после вступления -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-6">
+        <div class="ratio ratio-4x3 rounded overflow-hidden shadow-sm">
+          <img src="{{ url_for('static', filename='img/8.jpeg') }}" alt="Утро на берегу Суры" class="w-100 h-100 object-fit-cover" loading="lazy">
+        </div>
+        <div class="mt-2"><small class="text-muted">Утро у реки — начало дня в кемпинге</small></div>
+      </div>
+      <div class="col-md-6">
+        <div class="ratio ratio-4x3 rounded overflow-hidden shadow-sm">
+          <img src="{{ url_for('static', filename='img/11.jpeg') }}" alt="Вечер у костра" class="w-100 h-100 object-fit-cover" loading="lazy">
+        </div>
+        <div class="mt-2"><small class="text-muted">Баня готова</small></div>
+      </div>
+    </div>
+
+    <div class="row gy-4 mt-1">
+      <div class="col-md-6">
+        <h3>Где мы</h3>
+        <p>Нижегородская область, слияние рек Сура и Волга. Уединённое место, но доступное на машине из Нижнего Новгорода и ближайших населённых пунктов.</p>
+        <p><strong>Координаты:</strong> <span class="text-monospace"><p>Широта: <strong>56.106891152622</strong><br>Долгота: <strong>45.961940407998</strong></p></span> </p>
+      </div>
+      <div class="col-md-6">
+        <h3>Что предлагаем</h3>
+        <ul class="list-unstyled">
+          <li>Палаточные места и домики</li>
+          <li>Рыбалка с берега</li>
+          <li>Баня и костровые зоны</li>
+          <li>Охраняемая парковка</li>
+          <li>Дополнительно: спальники, матрасы, мангалы, беседки</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row gy-4 mt-4">
+      <div class="col-md-6">
+        <h3>Наша миссия</h3>
+        <p>Дать людям возможность отключиться от города в простом, тёплом месте — быть ближе к природе и при этом не терять базовый комфорт. Мы заботимся о чистоте и просим гостей уважать территорию.</p>
+      </div>
+      <div class="col-md-6">
+        <h3>Почему выбирают нас</h3>
+        <ul>
+          <li>Простота и искренность</li>
+          <li>Чёткие цены без скрытых условий</li>
+          <li>Быстрая связь и бронь через Telegram</li>
+          <li>Удобное расположение и парковка</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h3>Как начать</h3>
+      <p>Напиши в Telegram или оставь заявку на сайте — подберём дату, подскажем маршрут и всё подготовим к твоему приезду.</p>
+      <div class="d-flex gap-2 flex-wrap">
+        <a href="#booking" class="btn btn-primary">Забронировать</a>
+        <a href="https://t.me/palannavolge" target="_blank" class="btn btn-outline-secondary">Написать в Telegram</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

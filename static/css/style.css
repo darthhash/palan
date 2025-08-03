@@ -1,0 +1,253 @@
+/* ==== Базовая типографика и цвета ==== */
+:root {
+  --brand: #1f6feb;
+  --brand-dark: #155ac0;
+  --text: #1f2e50;
+  --muted: #6f7d95;
+  --radius: 8px;
+  --bg-section: #f5f8fc;
+}
+
+body {
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.5;
+  margin: 0;
+}
+h1, h2, h3 {
+  font-weight: 700;
+  margin-top: 0;
+}
+p {
+  margin: .75rem 0 1rem;
+}
+.lead {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+/* ==== Навбар ==== */
+.custom-navbar {
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding: .5rem 0;
+}
+.custom-navbar .navbar-brand {
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  text-decoration: none;
+}
+.custom-navbar .nav-link {
+  color: #4a4a4a;
+  padding: .4rem .75rem;
+  transition: color .2s;
+}
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link:focus {
+  color: var(--brand);
+}
+.custom-navbar .nav-link.active {
+  color: var(--brand);
+  position: relative;
+}
+.custom-navbar .nav-link.active::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--brand);
+  border-radius: 2px;
+  margin-top: 4px;
+}
+.custom-navbar .btn-primary {
+  background: var(--brand);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+.custom-navbar .btn-primary:hover {
+  background: var(--brand-dark);
+}
+
+/* ==== Секции ==== */
+section {
+  position: relative;
+}
+section[id] {
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+}
+
+/* ==== About ==== */
+#about {
+  background: #fff;
+}
+.about-photos .ratio {
+  border-radius: 8px;
+}
+.contact-box {
+  border: 1px solid rgba(31,110,235,0.15);
+  border-radius: 10px;
+  padding: 1rem 1rem;
+  background: #f0f8ff;
+  margin-bottom: 1rem;
+}
+.contact-box a {
+  color: var(--text);
+  text-decoration: none;
+}
+.contact-box a:hover {
+  text-decoration: underline;
+}
+.coords {
+  background: #eef6fc;
+  padding: .5rem .75rem;
+  border-radius: 6px;
+  font-size: .85rem;
+  display: inline-block;
+}
+
+/* ==== Booking ==== */
+.booking-section {
+  background: #e5f2fe;
+}
+.booking-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.booking-main, .booking-contacts {
+  flex: 1;
+  min-width: 280px;
+}
+.booking-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 20px 50px -15px rgba(31, 110, 235, 0.08);
+  border: 1px solid rgba(31,110,235,0.1);
+}
+.booking-card .example-box {
+  background: #f0f8ff;
+  padding: .75rem 1rem;
+  border: 1px solid #b8dffd;
+  border-radius: 6px;
+  font-family: ui-monospace, monospace;
+  font-size: .95rem;
+  line-height: 1.3;
+  margin-bottom: .75rem;
+}
+.placeholder {
+  display: inline-block;
+  min-width: 60px;
+  background: #cde6fc;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #0f2e5f;
+}
+
+/* ==== Кнопки ==== */
+.btn {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all .2s;
+}
+.btn-primary {
+  background: var(--brand);
+  border: none;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--brand-dark);
+}
+.btn-telegram {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: .55rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  border-radius: 8px;
+}
+.btn-telegram:hover {
+  background: var(--brand-dark);
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--brand);
+  color: var(--brand);
+}
+.btn-outline:hover {
+  background: rgba(31,110,235,0.05);
+}
+.small-muted {
+  color: var(--muted);
+}
+
+/* ==== Контакты в booking ==== */
+.booking-contacts .contact-card {
+  background: #fff;
+  border: 1px solid rgba(31,110,235,0.1);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 18px 45px -5px rgba(31, 110, 235, 0.06);
+}
+.booking-contacts a {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.booking-contacts a:hover {
+  text-decoration: underline;
+}
+
+/* ==== Footer ==== */
+footer {
+  background: #1f2e50;
+  color: #ccc;
+  padding: 2rem 0;
+  font-size: .9rem;
+}
+footer a {
+  color: #fff;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+footer .icon {
+  margin-right: .5rem;
+}
+
+/* ==== Общие мелочи ==== */
+.text-secondary {
+  color: #556b8f !important;
+}
+.mb-0 { margin-bottom:0; }
+.mt-0 { margin-top:0; }
+.gap-2 { gap:.5rem; }
+
+/* ==== Адаптив ==== */
+@media (max-width: 992px) {
+  .booking-card-wrapper {
+    flex-direction: column;
+  }
+}
+#reviews .card {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+#reviews .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 60px -10px rgba(31,110,235,0.15);
+}
+.text-warning {
+  color: #f5a623 !important;
+}

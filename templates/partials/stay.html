@@ -1,0 +1,87 @@
+<section id="stay" class="py-5 bg-white">
+  <div class="container">
+    <h2 class="mb-4">Размещение и цены</h2>
+
+    <!-- Основные услуги -->
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <h3 class="h5">Основное размещение</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Услуга</th>
+                <th>Цена (будни), ₽</th>
+                <th>Цена (пт–вск), ₽</th>
+                <th>За 7 дней, ₽</th>
+                <th>За месяц, ₽</th>
+                <th>Ед. измерения / примечание</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for s in services_main %}
+              <tr>
+                <td>{{ s.name }}</td>
+                <td>{{ s.price or '—' }}</td>
+                <td>{{ s.weekend_price or '—' }}</td>
+                <td>{{ s.week_price or '—' }}</td>
+                <td>{{ s.monthly or '—' }}</td>
+                <td>
+                  {% if s.unit %}{{ s.unit }}{% endif %}
+                  {% if s.note %}<br><small class="text-muted">{{ s.note }}</small>{% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Дополнительные -->
+    <div class="card mb-3 shadow-sm">
+      <div class="card-body">
+        <h3 class="h5">Дополнительно</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Услуга / товар</th>
+                <th>Цена (будни), ₽</th>
+                <th>Цена (пт–вск), ₽</th>
+                <th>За 7 дней, ₽</th>
+                <th>Ед. изм.</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for a in addons %}
+              <tr>
+                <td>{{ a.name }}</td>
+                <td>{{ a.price or '—' }}</td>
+                <td>{{ a.weekend_price or '—' }}</td>
+                <td>{{ a.week_price or '—' }}</td>
+                <td>
+                  {% if a.unit %}{{ a.unit }}{% endif %}
+                  {% if a.note %}<br><small class="text-muted">{{ a.note }}</small>{% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Скидки / пояснения -->
+    <div class="alert alert-secondary">
+      <h6 class="mb-2">Скидки и особенности:</h6>
+      <ul class="mb-0">
+        <li>Дети до 7 лет — бесплатно (при размещении в палатке/палаточном месте).</li>
+        <li>Дети от 7 до 14 лет — 50% от стоимости.</li>
+        <li>Каждое третье посещение — скидка 5%.</li>
+        <li>Баня: минимум 2 часа, максимум 4 человека за сеанс.</li>
+        <li>Охраняемая стоянка: стоимость указана за машиноместо в сутки; есть месячный тариф.</li>
+      </ul>
+    </div>
+  </div>
+</section>
