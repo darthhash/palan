@@ -206,15 +206,20 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
 
-@app.route('/sitemap.xml')
+@app.route("/sitemap.xml")
 def sitemap():
     pages = []
-    for rule in app.url_map.iter_rules():
-        if "GET" in rule.methods and len(rule.arguments) == 0:
-            url = url_for(rule.endpoint, _external=True)
-            # исключаем статические, если нужно
-            if '/static/' in url:
-                continue
-            pages.append(url)
-    sitemap_xml = render_template('sitemap_template.xml', pages=pages, lastmod=datetime.utcnow().date())
-    return Response(sitemap_xml, mimetype='application/xml')
+    # Пример: добавляем главную
+    pages.append(f"<url><loc>{url_for('index', _external=True)}</loc></url>")
+
+    # Если у тебя есть ещё страницы, добавь их сюда
+    # например:
+    # pages.append(f"<url><loc>{url_for('about', _external=True)}</loc></url>")
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        {''.join(pages)}
+    </urlset>"""
+
+    return Response(xml, mimetype="application/xml")
+
