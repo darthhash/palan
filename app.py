@@ -200,26 +200,37 @@ def home():
 @app.route("/ping")
 def ping():
     return "pong"
+@app.route("/sitemap.xml")
+def sitemap():
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <url>
+            <loc>https://palancamping.ru/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>1.0</priority>
+        </url>
+        <url>
+            <loc>https://palancamping.ru/about</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
+        <url>
+            <loc>https://palancamping.ru/contacts</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
+        <url>
+            <loc>https://palancamping.ru/how-to-get</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
+    </urlset>"""
+    return Response(xml, mimetype="application/xml")
 
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
 
-@app.route("/sitemap.xml")
-def sitemap():
-    pages = []
-    # Пример: добавляем главную
-    pages.append(f"<url><loc>{url_for('index', _external=True)}</loc></url>")
 
-    # Если у тебя есть ещё страницы, добавь их сюда
-    # например:
-    # pages.append(f"<url><loc>{url_for('about', _external=True)}</loc></url>")
-
-    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-        {''.join(pages)}
-    </urlset>"""
-
-    return Response(xml, mimetype="application/xml")
 
