@@ -205,3 +205,16 @@ def ping():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
+
+@app.route('/sitemap.xml')
+def sitemap():
+    pages = []
+    for rule in app.url_map.iter_rules():
+        if "GET" in rule.methods and len(rule.arguments) == 0:
+            url = url_for(rule.endpoint, _external=True)
+            # исключаем статические, если нужно
+            if '/static/' in url:
+                continue
+            pages.append(url)
+    sitemap_xml = render_template('sitemap_template.xml', pages=pages, lastmod=datetime.utcnow().date())
+    return Response(sitemap_xml, mimetype='application/xml')

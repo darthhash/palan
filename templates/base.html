@@ -1,6 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>{{ title or "Кемпинг «Палан» — отдых, рыбалка и купание на слиянии Суры и Волги" }}</title>
+  <meta name="description" content="{{ description or 'Кемпинг «Палан» — семейный кемпинг в Нижегородской области у слияния Суры и Волги. Купание, рыбалка, баня, паромная переправа — простое и душевное место для отдыха.' }}">
+  <link rel="canonical" href="{{ canonical_url or 'https://palancamping.ru/' }}">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Кемпинг «Палан»">
+  <meta property="og:title" content="{{ title or 'Кемпинг «Палан» — отдых и рыбалка в Нижегородской земле' }}">
+  <meta property="og:description" content="{{ description or 'Кемпинг «Палан» — семейный кемпинг у места слияния Суры и Волги. Купание, рыбалка, баня и прогулки.' }}">
+  <meta property="og:url" content="{{ canonical_url or 'https://palancamping.ru/' }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ url_for('static', filename='og-image-1200x630.png', _external=True) }}">
+  <meta property="og:image:alt" content="Панорама кемпинга Палан — палатки у реки, лес и паром">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title or 'Кемпинг «Палан»' }}">
+  <meta name="twitter:description" content="{{ description or 'Кемпинг «Палан» — отдых, рыбалка и купание на слиянии Суры и Волги.' }}">
+  <meta name="twitter:image" content="{{ url_for('static', filename='og-image-1200x630.png', _external=True) }}">
+
+  <!-- Локальные метаданные -->
+  <meta name="geo.region" content="RU-NIZ">
+  <meta name="geo.placename" content="Лысая Гора, Нижегородская область">
+  <meta name="geo.position" content="56.106891152622;45.961940407998">
+
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  {% block extra_meta %}{% endblock %}
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{% block title %}Кемпинг на слиянии Суры и Волги{% endblock %}</title>
@@ -11,6 +42,44 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=3">
 
   {% block head_extra %}{% endblock %}
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Campground",
+  "name": "Кемпинг «Палан»",
+  "description": "Семейный кемпинг в Нижегородской области у слияния Суры и Волги: купание, рыбалка, баня, беседки, паромная переправа и палаточные места.",
+  "url": "https://palancamping.ru/",
+  "image": "https://palancamping.ru/static/og-image-1200x630.png",
+  "telephone": "+7 (933) 425 52 00",
+  "email": "info@palancamping.ru",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Сурская ул., 1",
+    "addressLocality": "Лысая Гора",
+    "addressRegion": "Нижегородская область",
+    "postalCode": ""
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 56.106891152622,
+    "longitude": 45.961940407998
+  },
+  "openingHours": "Mo-Su 09:00-21:00",
+  "priceRange": "₽"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Главная","item":"https://palancamping.ru/"},
+    {"@type":"ListItem","position":2,"name":"Размещение","item":"https://palancamping.ru/accommodation"},
+    {"@type":"ListItem","position":3,"name":"Как добраться","item":"https://palancamping.ru/how-to-get"}
+  ]
+}
+</script>
 </head>
 <script type="application/ld+json">
 {
